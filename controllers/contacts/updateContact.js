@@ -18,4 +18,3 @@ const updateContact = async (req, res, next) => {
   });
 };
 module.exports = updateContact;
-
