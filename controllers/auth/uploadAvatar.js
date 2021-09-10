@@ -1,7 +1,7 @@
 const { users: service } = require("../../services");
 const fs = require("fs/promises"); // для перемещения файлов
-const path = require("path");
-const Jimp = require("jimp");
+const path = require("path"); // чтобы прописать пути к папкам
+const Jimp = require("jimp"); // для работы с изображениями
 const { v4: uuidv4 } = require("uuid");
 
 const usersDir = path.join(process.cwd(), "/public/avatars"); //путь к постоянной папке для сохранения аватара

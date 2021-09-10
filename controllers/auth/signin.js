@@ -6,12 +6,12 @@ const signin = async (req, res, next) => {
     const { email, password } = req.body; // извлекаем имейл и пароль из тела запроса
     const user = await service.getOne({ email }); // проверяем, есть ли такой пользователь
 
-    // если пользователь не найден или не найден пароль:
-    if (!user || !user.comparePassword(password)) {
+    // если пользователь не найден или не найден пароль или не подтвердил email: 
+    if (!user || !user.verify || !user.comparePassword(password)) {
       return res.status(400).json({
         status: "error",
         code: 400,
-        message: "Wrong email or password",
+        message: "Wrong email or password / email is not verified",
       });
     }
 
